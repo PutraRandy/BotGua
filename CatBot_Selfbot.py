@@ -6,8 +6,8 @@ from datetime import datetime
 import time,random,sys,json,codecs,threading,glob,re,ast,os,subprocess,requests
 
 cl = LINETCR.LINE()
-cl.login(qr=True)
-#cl.login(token='')
+#cl.login(qr=True)
+cl.login(token="EnliZjabbWniaqdsPTt5.nqZhqiZgZilGvU4eyth5jq.4DldEayovtSgtlpllfy/HiizJIJKmojjW1RC3eFY7RE=")
 cl.loginResult()
 print "===[Login Success]==="
 
@@ -53,9 +53,9 @@ helpMessage ="""
 ► Kill ban
 """
 
-mid = cl.getProfile().mid
-Creator="ud8c4d53f17999c8e029827b67af3b06a"
-admin=[""]
+mid = cl.getProfile().mid["u350cc7408cc6cc82e056ee046131f925"]
+Creator=["u350cc7408cc6cc82e056ee046131f925"]
+admin=["u350cc7408cc6cc82e056ee046131f925"]
 
 contact = cl.getProfile()
 profile = cl.getProfile()
@@ -248,7 +248,7 @@ def bot(op):
 #--------------------------------------------------------
             elif msg.text in ["Creator"]:
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': Creator}
+                msg.contentMetadata = {'mid': "u350cc7408cc6cc82e056ee046131f925"}
                 cl.sendMessage(msg)
 		cl.sendText(msg.to,"Itu Yang Bikin BOT")
 #--------------------------------------------------------
@@ -365,7 +365,7 @@ def bot(op):
                 wait["Contact"] = False
                 cl.sendText(msg.to,"Contact inActive")
 #--------------------------------------------------------
-            elif msg.text in ["Status"]:
+            elif msg.text in ["Set"]:
                 md = ""
 		if wait["AutoJoin"] == True: md+="✦ Auto join : on\n"
                 else: md +="✦ Auto join : off\n"
@@ -557,7 +557,7 @@ def bot(op):
 		    url = cl.activity(limit=1)
 		    print url
 		    cl.like(url['result']['posts'][0]['userInfo']['mid'], url['result']['posts'][0]['postInfo']['postId'], likeType=1001)
-		    cl.comment(url['result']['posts'][0]['userInfo']['mid'], url['result']['posts'][0]['postInfo']['postId'], "Mau Bot Protect?\nFollow ig : @rid1bdbx\nLalu dm ke dia")
+		    cl.comment(url['result']['posts'][0]['userInfo']['mid'], url['result']['posts'][0]['postInfo']['postId'], "Mau Kenal?\n ID LINE :boy29putra\nLalu kenalan ama dia")
 		    cl.sendText(msg.to, "Success~")
 		except Exception as E:
 		    try:
@@ -677,27 +677,27 @@ def bot(op):
                         cl.kickoutFromGroup(msg.to,[jj])
                     cl.sendText(msg.to,"Blacklist emang pantas tuk di usir")
 #--------------------------------------------------------
-#            elif "Cleanse" in msg.text:
-#                if msg.toType == 2:
-#                    print "Kick all member"
-#                    _name = msg.text.replace("Cleanse","")
-#                    gs = cl.getGroup(msg.to)
-#                    cl.sendText(msg.to,"Dadaaah~")
-#                    targets = []
-#                    for g in gs.members:
-#                        if _name in g.displayName:
-#                            targets.append(g.mid)
-#                    if targets == []:
-#                        cl.sendText(msg.to,"Not found.")
-#                    else:
-#                        for target in targets:
-#			     if target not in admin:
-#                                try:
-#                                    cl.kickoutFromGroup(msg.to,[target])
-#                                    print (msg.to,[g.mid])
-#                                except Exception as e:
-#                                    cl.sendText(msg.to,str(e))
-#			 cl.inviteIntoGroup(msg.to, targets)
+             elif "Cleanse" in msg.text:
+                 if msg.toType == 2:
+                     print "Kick all member"
+                     _name = msg.text.replace("Cleanse","")
+                     gs = cl.getGroup(msg.to)
+                     cl.sendText(msg.to,"Dadaaah~")
+                     targets = []
+                     for g in gs.members:
+                         if _name in g.displayName:
+                             targets.append(g.mid)
+                     if targets == []:
+                         cl.sendText(msg.to,"Not found.")
+                     else:
+                         for target in targets:
+			     if target not in admin:
+                                try:
+                                    cl.kickoutFromGroup(msg.to,[target])
+                                    print (msg.to,[g.mid])
+                                 except Exception as e:
+                                     cl.sendText(msg.to,str(e))
+			 cl.inviteIntoGroup(msg.to, targets)
 #--------------------------------------------------------
 #Restart_Program
 	    elif msg.text in ["Bot:restart"]:
